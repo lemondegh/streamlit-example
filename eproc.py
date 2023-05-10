@@ -129,7 +129,7 @@ if get_data:
             print(r_dict)
 
             import pandas as pd
-            from pandas.io.json import json_normalize
+            #from pandas.io.json import json_normalize
 
             # body = [json_object['body']['data']]
             print('Data ================================')
@@ -165,9 +165,10 @@ if get_data:
                         # data = r_dict['data']
                         data = r_dict['response']['body']['items']
                         print('Data\n', data)
-                        jnormal = pd.json_normalize(data)
+                        #jnormal = pd.json_normalize(data)
                         print('Normal\n', jnormal)
-                        finalTotalData = pd.concat([finalTotalData, pd.DataFrame(jnormal)], axis = 0, ignore_index = True)
+                        #finalTotalData = pd.concat([finalTotalData, pd.DataFrame(jnormal)], axis = 0, ignore_index = True)
+                        finalTotalData = pd.concat([finalTotalData, pd.DataFrame(data)], axis = 0, ignore_index = True)
 
                 print(finalTotalData)
                 # finalTotalData.rename(columns={'bidNtceNo':'NO'}, inplace=True)
